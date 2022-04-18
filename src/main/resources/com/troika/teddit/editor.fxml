@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+			minWidth="-Infinity"
+			prefHeight="720.0" prefWidth="1080.0" styleClass="master-pane"
+			stylesheets="@editorStylesheet.css" xmlns="http://javafx.com/javafx/18"
+			fx:controller="com.troika.teddit.EditorController">
+	<center>
+		<TextArea fx:id="textArea" nodeOrientation="LEFT_TO_RIGHT" wrapText="true">
+			<font>
+				<Font name="SansSerif Regular" size="15.0"/>
+			</font>
+			<effect>
+				<InnerShadow choke="0.46" color="#010103" height="19.4" radius="7.375" width="12.1"/>
+			</effect>
+		</TextArea>
+	</center>
+	<top>
+		<MenuBar prefHeight="25.0" prefWidth="600.0" stylesheets="@editorStylesheet.css" BorderPane.alignment="CENTER">
+			<Menu text="File">
+				<MenuItem fx:id="newFile" mnemonicParsing="false" onAction="#newFile" text="New">
+					<accelerator>
+						<KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+					</accelerator>
+				</MenuItem>
+				<MenuItem fx:id="openFile" mnemonicParsing="false" onAction="#openFile" text="Open">
+					<accelerator>
+						<KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+					</accelerator>
+				</MenuItem>
+				<MenuItem fx:id="save" onAction="#save" text="Save">
+					<accelerator>
+						<KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+					</accelerator>
+				</MenuItem>
+				<SeparatorMenuItem mnemonicParsing="false"/>
+				<MenuItem id="close" mnemonicParsing="false" onAction="#exit" text="Close"/>
+			</Menu>
+			<Menu mnemonicParsing="false" text="Edit">
+				<Menu mnemonicParsing="false" text="Fontsize">
+					<RadioMenuItem fx:id="small" mnemonicParsing="false" onAction="#fontSize" text="Small ( 16px )"/>
+					<RadioMenuItem fx:id="defalt" mnemonicParsing="false" onAction="#fontSize" text="Default ( 20px )"/>
+					<RadioMenuItem fx:id="large" mnemonicParsing="false" onAction="#fontSize" text="Large ( 24px )"/>
+				</Menu>
+			</Menu>
+			<Menu mnemonicParsing="false" text="Info">
+				<MenuItem mnemonicParsing="false" onAction="#about" text="About"/>
+				<MenuItem fx:id="help" mnemonicParsing="false" onAction="#help" text="Help"/>
+			</Menu>
+		</MenuBar>
+	</top>
+	<bottom>
+		<ToggleButton fx:id="tog" mnemonicParsing="false" onAction="#toggle" text="Keyboard"
+					  BorderPane.alignment="TOP_RIGHT"/>
+	</bottom>
+</BorderPane>

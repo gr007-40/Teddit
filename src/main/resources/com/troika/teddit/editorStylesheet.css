@@ -1,0 +1,54 @@
+
+.master-pane {
+	-fx-background-color: #2f343f;
+}
+
+.text-area {
+	-fx-text-fill: #B4C4D0;
+	-fx-font-size: 20;
+	-fx-font-family: "Consolas";
+	-fx-focus-color: transparent;
+}
+
+
+.menu .label {
+	-fx-text-fill: #D1D6C5;
+}
+
+.menu-item {
+	-fx-background-color: -fx-my-menu-color;
+}
+
+.menu-item .label {
+	-fx-text-fill: -fx-my-menu-font-color;
+}
+
+.menu-item .label:disabled {
+	-fx-opacity: 1.0;
+}
+
+.context-menu {
+	-fx-background-color: -fx-my-menu-color;
+}
+
+menu-bar:hover, .menu-item:hover {
+	-fx-background-color: #404552;
+}
+
+.menu-bar {
+	-fx-background-color: #2F343F;
+	-fx-font-size: 16;
+	-fx-font-family: "Consolas";
+}
+
+.text-area .content {
+	-fx-background-color: #393939;
+	
+}
+
+* {
+	-fx-my-menu-color: #2F343F;
+	-fx-my-menu-color-highlighted: #404552;
+	-fx-my-menu-font-color: #D1D6C5;
+	-fx-my-menu-font-color-highlighted: #D1D6C5;
+}

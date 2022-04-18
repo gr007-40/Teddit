@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="parentContainer" xmlns="http://javafx.com/javafx/17"
+		   fx:controller="com.troika.teddit.SignupController">
+	<AnchorPane fx:id="anchorRoot">
+		<ImageView fitHeight="120.0" fitWidth="120.0" layoutX="351.0" layoutY="57.0">
+			<effect>
+				<Blend mode="LIGHTEN" opacity="0.8"/>
+			</effect>
+			<Image url="@images/img-01.png"/>
+		</ImageView>
+		<Text layoutX="353.0" layoutY="48.0" text="Sign Up" textAlignment="CENTER">
+			<font>
+				<Font name="Serif Regular" size="32.0"/>
+			</font>
+		</Text>
+		<Text layoutX="34.0" layoutY="204.0" text="Full Name:" textAlignment="CENTER">
+			<font>
+				<Font size="14.0"/>
+			</font>
+		</Text>
+		<TextField fx:id="tf_fullName" layoutX="122.0" layoutY="181.0" prefHeight="37.0" prefWidth="280.0"
+				   promptText="John Doe">
+			<font>
+				<Font name="Source Code Pro" size="14.0"/>
+			</font>
+		</TextField>
+		<Text layoutX="63.0" layoutY="276.0" text="Email:" textAlignment="CENTER">
+			<font>
+				<Font size="14.0"/>
+			</font>
+		</Text>
+		<TextField fx:id="tf_email" layoutX="122.0" layoutY="252.0" prefHeight="38.0" prefWidth="280.0"
+				   promptText="jhon@example.com">
+			<font>
+				<Font name="Source Code Pro" size="14.0"/>
+			</font>
+		</TextField>
+		<Text layoutX="440.0" layoutY="204.0" text="Username:" textAlignment="CENTER">
+			<font>
+				<Font size="14.0"/>
+			</font>
+		</Text>
+		<TextField fx:id="tf_username" layoutX="532.0" layoutY="181.0" prefHeight="36.0" prefWidth="280.0"
+				   promptText="john_doe87">
+			<font>
+				<Font name="Source Code Pro" size="14.0"/>
+			</font>
+		</TextField>
+		<Text layoutX="476.0" layoutY="274.0" text="Age:" textAlignment="CENTER">
+			<font>
+				<Font size="14.0"/>
+			</font>
+		</Text>
+		<TextField fx:id="i_age" layoutX="532.0" layoutY="253.0" prefHeight="36.0" prefWidth="92.0" promptText="21"/>
+		<Text layoutX="634.0" layoutY="276.0" text="Gender:" textAlignment="CENTER">
+			<font>
+				<Font name="Source Code Pro" size="14.0"/>
+			</font>
+		</Text>
+		<TextField fx:id="genderText" layoutX="702.0" layoutY="251.0" prefHeight="36.0" prefWidth="106.0"
+				   promptText="Male"/>
+		<Text layoutX="29.0" layoutY="347.0" text="Password:" textAlignment="CENTER" wrappingWidth="75.60000610351562">
+			<font>
+				<Font name="Source Code Pro" size="14.0"/>
+			</font>
+		</Text>
+		<PasswordField fx:id="pf_password" layoutX="122.0" layoutY="323.0" onAction="#signIn" prefHeight="37.0"
+					   prefWidth="280.0" promptText="password">
+			<font>
+				<Font name="Source Code Pro" size="14.0"/>
+			</font>
+		</PasswordField>
+		<Text layoutX="411.0" layoutY="340.0" text="Confirm Password:" textAlignment="CENTER" wrappingWidth="120.0">
+			<font>
+				<Font name="Source Code Pro" size="14.0"/>
+			</font>
+		</Text>
+		<PasswordField fx:id="pf_password1" layoutX="532.0" layoutY="324.0" onAction="#signIn" prefHeight="35.0"
+					   prefWidth="280.0" promptText="password">
+			<font>
+				<Font name="Source Code Pro" size="14.0"/>
+			</font>
+		</PasswordField>
+		<CheckBox fx:id="accept_upper_limb_disability" layoutX="122.0" layoutY="394.0" mnemonicParsing="false"
+				  text="I have upper limb disability">
+			<font>
+				<Font size="14.0"/>
+			</font>
+		</CheckBox>
+		<CheckBox fx:id="agreement" layoutX="402.0" layoutY="394.0" mnemonicParsing="false"
+				  text="I agree with the terms and conditions.">
+			<font>
+				<Font size="14.0"/>
+			</font>
+		</CheckBox>
+		<Button fx:id="btn_signUp" layoutX="328.0" layoutY="441.0" onAction="#signUp" prefHeight="45.0"
+				prefWidth="165.0" text="Sign Up" textAlignment="CENTER">
+			<font>
+				<Font name="Source Code Pro Medium" size="20.0"/>
+			</font>
+			<cursor>
+				<Cursor fx:constant="HAND"/>
+			</cursor>
+		</Button>
+		<Text layoutX="310.0" layoutY="517.0" text="Already have an account?">
+			<font>
+				<Font name="Source Code Pro Medium" size="14.0"/>
+			</font>
+		</Text>
+		<Text fx:id="txt_welcome" fill="BLUE" layoutX="531.0" layoutY="517.0" onMouseClicked="#signIn" text="Login"
+			  textAlignment="CENTER" underline="true">
+			<font>
+				<Font name="Source Code Pro Medium" size="14.0"/>
+			</font>
+			<cursor>
+				<Cursor fx:constant="HAND"/>
+			</cursor>
+		</Text>
+		<StackPane.margin>
+			<Insets bottom="80.0" left="100.0" right="40.0" top="80.0"/>
+		</StackPane.margin>
+	</AnchorPane>
+</StackPane>
