@@ -4,8 +4,13 @@ import javafx.application.Platform;
 import javafx.css.Styleable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -28,8 +33,6 @@ public class EditorController implements Initializable, Runnable{
 	private TextArea textArea;
 	private Thread worker;
 	private Stage stage;
-	@FXML
-	private Tab tab;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources){
@@ -86,10 +89,6 @@ public class EditorController implements Initializable, Runnable{
 		}
 	}
 	
-	public void stop(){
-		running.set(false);
-	}
-	
 	@FXML
 	public void openFile(){
 		fileChooser.setTitle("Open File");
@@ -98,13 +97,9 @@ public class EditorController implements Initializable, Runnable{
 		if(null != file){
 			textArea.clear();
 			readText(file);
-			tab.setText(file.getName());
 		}
 	}
 	
-	//TODO add confirmation window if text editor has text and wasn't saved
-	
-	// sets the textArea to the text of the opened file
 	private void readText(File file){
 		String text;
 		
@@ -148,8 +143,12 @@ public class EditorController implements Initializable, Runnable{
 	}
 	
 	@FXML
-	public void help(){
-		//TODO add help section
+	public void help() throws IOException{
+		Stage helpWindow = new Stage();
+		helpWindow.setTitle("help");
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("help.fxml"));
+		helpWindow.setScene(new Scene(loader.load()));
+		helpWindow.show();
 	}
 	
 	@Override
@@ -176,6 +175,10 @@ public class EditorController implements Initializable, Runnable{
 	public void start(){
 		worker = new Thread(this);
 		worker.start();
+	}
+	
+	public void stop(){
+		running.set(false);
 	}
 	
 }

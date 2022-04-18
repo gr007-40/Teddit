@@ -105,6 +105,7 @@ public class SignupController{
 		}catch(NumberFormatException e){
 			Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage() + " for age");
 			alert.show();
+			return;
 		}
 		if(fullname.isEmpty() || email.isEmpty() || username.isEmpty() || gender.isEmpty()){
 			Alert alert = new Alert(Alert.AlertType.ERROR, "empty input field(s)");
@@ -114,12 +115,11 @@ public class SignupController{
 		try{
 			DbHandler.insertIntoDatabase(fullname, email, username, age, gender, hash,
 										 accept_upper_limb_disability.isSelected());
-			System.out.println("Successfully signed up as user: " + tf_username.getText());
-			Alert alert = new Alert(Alert.AlertType.INFORMATION,
-									"Successfully signed up as user: " + tf_username.getText());
+			System.out.println("Successfully signed up as user: " + username);
+			Alert alert = new Alert(Alert.AlertType.INFORMATION, "Successfully signed up as user: " + username);
 			alert.show();
-			
-		}catch(SQLException e){
+			signIn();
+		}catch(SQLException | IOException e){
 			System.out.println(e.getMessage());
 			Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage());
 			alert.show();

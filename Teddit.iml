@@ -7,6 +7,9 @@
       <excludeFolder url="file://$MODULE_DIR$/build" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
       <excludeFolder url="file://$MODULE_DIR$/model" />
+      <excludeFolder url="file://$MODULE_DIR$/vosk-model-en-us-0.22" />
+      <excludeFolder url="file://$MODULE_DIR$/vosk-model-en-us-0.22-lgraph" />
+      <excludeFolder url="file://$MODULE_DIR$/vosk-model-small-en-us-0.15" />
     </content>
     <orderEntry type="jdk" jdkName="18" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
