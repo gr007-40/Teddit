@@ -18,6 +18,7 @@ import javax.sound.sampled.LineUnavailableException;
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -32,6 +33,7 @@ public class EditorController implements Initializable, Runnable{
 	@FXML
 	private TextArea textArea;
 	private Thread worker;
+	String username = WelcomeController.currentUser.getUsername();
 	private Stage stage;
 	
 	@Override
@@ -156,8 +158,14 @@ public class EditorController implements Initializable, Runnable{
 		running.set(true);
 		while(running.get()){
 			String message = rec.getMessage();
-			if(!message.isEmpty())
+			if(!message.isEmpty()){
 				textArea.appendText(" " + message);
+				try{
+					DbHandler.updateWordsFrequency(username, message);
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 	
@@ -181,4 +189,11 @@ public class EditorController implements Initializable, Runnable{
 		running.set(false);
 	}
 	
+	public void profile() throws IOException{
+		Stage profileWindow = new Stage();
+		profileWindow.setTitle("profile");
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
+		profileWindow.setScene(new Scene(loader.load()));
+		profileWindow.show();
+	}
 }

@@ -22,7 +22,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class WelcomeController implements Initializable{
-	User currentUser;
+	static User currentUser;
 	@FXML
 	private PasswordField pf_password;
 	@FXML
@@ -58,6 +58,12 @@ public class WelcomeController implements Initializable{
 	@FXML
 	void signIn() throws NoSuchAlgorithmException, SQLException, IOException{
 		//TODO
+		if(pf_password.getText().isEmpty() || tf_username.getText().isEmpty()){
+			System.out.println("Invalid username or password.");
+			Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid username or password.");
+			alert.show();
+			return;
+		}
 		MessageDigest md = MessageDigest.getInstance("MD5");
 		String password = pf_password.getText();
 		md.update(password.getBytes(StandardCharsets.UTF_8));

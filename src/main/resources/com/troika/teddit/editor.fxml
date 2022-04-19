@@ -5,10 +5,11 @@
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+<?import javafx.scene.text.Text?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
 			minWidth="-Infinity"
 			prefHeight="720.0" prefWidth="1080.0" styleClass="master-pane"
-			stylesheets="@editorStylesheet.css" xmlns="http://javafx.com/javafx/18"
+			stylesheets="@editorStylesheet.css" xmlns="http://javafx.com/javafx"
 			fx:controller="com.troika.teddit.EditorController">
 	<center>
 		<TextArea fx:id="textArea" nodeOrientation="LEFT_TO_RIGHT" wrapText="true">
@@ -49,13 +50,19 @@
 				</Menu>
 			</Menu>
 			<Menu mnemonicParsing="false" text="Info">
-				<MenuItem mnemonicParsing="false" onAction="#about" text="About"/>
+				<MenuItem fx:id="profile" mnemonicParsing="false" onAction="#profile" text="Profile"/>
+				<MenuItem fx:id="about" mnemonicParsing="false" onAction="#about" text="About"/>
 				<MenuItem fx:id="help" mnemonicParsing="false" onAction="#help" text="Help"/>
 			</Menu>
 		</MenuBar>
 	</top>
 	<bottom>
 		<ToggleButton fx:id="tog" mnemonicParsing="false" onAction="#toggle" text="Keyboard"
-					  BorderPane.alignment="TOP_RIGHT"/>
+					  BorderPane.alignment="TOP_RIGHT">
+			<graphic>
+				<Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Mode:"
+					  wrappingWidth="92.95384788513184"/>
+			</graphic>
+		</ToggleButton>
 	</bottom>
 </BorderPane>
