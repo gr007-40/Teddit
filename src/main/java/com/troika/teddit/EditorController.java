@@ -144,15 +144,6 @@ public class EditorController implements Initializable, Runnable{
 		}
 	}
 	
-	@FXML
-	public void help() throws IOException{
-		Stage helpWindow = new Stage();
-		helpWindow.setTitle("help");
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("help.fxml"));
-		helpWindow.setScene(new Scene(loader.load()));
-		helpWindow.show();
-	}
-	
 	@Override
 	public void run(){
 		running.set(true);
